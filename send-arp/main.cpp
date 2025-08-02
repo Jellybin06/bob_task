@@ -180,10 +180,9 @@ int attackPacket(char* dev, char* senderIp, char* targetIp) {
 
 int main(int argc, char* argv[]) {
 	char* dev = argv[1];
-	if (argc%2!=0) return -1;
-	printf("dev = %s\n", dev);
-	for(int i = 1; i <= argc; i++) {
-		attackPacket(dev, argv[i+1], argv[i+1]);
-		i+=2;
+	if ((argc - 1) % 2 == 0) return -1;
+	printf("dev = %s num = %d\n", dev, argc);
+	for (int i = 2; i < argc; i += 2) {
+		if(attackPacket(dev, argv[i], argv[i + 1])) return -1;
 	}
 }
