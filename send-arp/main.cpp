@@ -182,6 +182,7 @@ int main(int argc, char* argv[]) {
 	char* dev = argv[1];
 	if ((argc - 1) % 2 == 0) return -1;
 	printf("dev = %s num = %d\n", dev, argc);
+	// map
 	for (int i = 2; i < argc; i += 2) {
 		if(attackPacket(dev, argv[i], argv[i + 1])) return -1;
 	}
